@@ -1,0 +1,59 @@
+@use "@/styles/mixins" as m;
+
+.wrapper {
+	&__first {
+		margin-top: vars.$margin-top-lg;
+		@media (min-width: 798px) {
+			margin-top: vars.$margin-top-base;
+		}
+	}
+
+	&__default {
+		margin-top: vars.$margin-top-base;
+	}
+}
+
+.scrollContainer {
+	@include m.container-padding;
+
+	overflow-x: auto;
+
+	scroll-behavior: smooth;
+	scrollbar-width: none;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+	.cardRow {
+		display: flex;
+		gap: vars.$spacing-small;
+	}
+	.cardRowMobile {
+		@media (min-width: 768px) {
+			display: none;
+		}
+	}
+}
+
+.header {
+	@include m.container-padding;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: vars.$spacing-base;
+}
+.left {
+	display: flex;
+	gap: vars.$spacing-small;
+}
+.right {
+	display: flex;
+	gap: vars.$spacing-small;
+	.nav {
+		display: flex;
+		gap: vars.$spacing-small;
+		@media (max-width: 768px) {
+			display: none;
+		}
+	}
+}

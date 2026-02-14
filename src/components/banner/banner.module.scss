@@ -1,0 +1,9 @@
+.banner {
+	width: 100%;
+	object-fit: cover;
+	margin-top: vars.$spacing-base;
+
+	@media (min-width: 768px) {
+		margin-top: 0;
+	}
+}

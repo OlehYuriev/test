@@ -1,0 +1,28 @@
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: clamp(52px, 8vw, 68px);
+
+	.logo {
+		font-size: 24px;
+		line-height: 83%;
+		color: #fff;
+	}
+	.search {
+		background: none;
+		border: none;
+		cursor: pointer;
+		color: #fff;
+		transition: color 0.3s;
+
+		&:hover {
+			color: vars.$secondary-color;
+		}
+
+		svg {
+			width: 21px;
+			height: 24px;
+		}
+	}
+}

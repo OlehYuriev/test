@@ -1,0 +1,44 @@
+$primary-color: #9fa1aa;
+.container {
+	position: relative;
+}
+.helper {
+	font-weight: vars.$font-weight-regular;
+	font-size: vars.$font-size-xs;
+	line-height: 133%;
+	color: vars.$text-color;
+	padding-left: vars.$spacing-small;
+}
+.input {
+	width: 100%;
+	padding: 14px 12px 14px 48px;
+	/* 	height: 48px; */
+	border: none;
+	border-radius: vars.$border-radius-sm;
+	font-size: vars.$font-size-small;
+	outline: none;
+	color: vars.$text-color;
+	background: vars.$surface-color;
+	&::placeholder {
+		color: $primary-color;
+	}
+}
+.icon {
+	position: absolute;
+	color: $primary-color;
+	top: 50%;
+	transform: translate(0, -50%);
+	left: 18px;
+	svg {
+		width: 24px;
+		height: 24px;
+	}
+}
+.close {
+	position: absolute;
+	color: $primary-color;
+	top: 50%;
+	transform: translate(0, -50%);
+	right: 21px;
+	cursor: pointer;
+}

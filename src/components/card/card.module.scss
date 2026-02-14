@@ -1,0 +1,37 @@
+.card {
+	display: flex;
+	flex: 0 0 auto;
+	width: 168px;
+	gap: 4px;
+	padding: vars.$spacing-small;
+	border-radius: vars.$border-radius-base;
+	background: #2b324c;
+	overflow: hidden;
+}
+
+.image {
+	border-radius: vars.$border-radius-small;
+	width: 68px;
+	height: 48px;
+	object-fit: cover;
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+}
+
+.title {
+	font-size: vars.$font-size-small;
+	color: vars.$secondary-color;
+}
+
+.price {
+	font-size: vars.$font-size-small;
+	color: #289211;
+}
+
+.name {
+	font-weight: vars.$font-weight-regular;
+	font-size: vars.$font-size-xs;
+}

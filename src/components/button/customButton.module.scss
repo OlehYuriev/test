@@ -1,0 +1,53 @@
+.button {
+	font-weight: vars.$font-weight-bold;
+	font-size: vars.$font-size-base;
+	line-height: 150%;
+	color: vars.$text-color;
+	position: relative;
+	z-index: 10;
+	transition:
+		background-color 0.2s,
+		color 0.2s;
+
+	&.contained {
+		background-color: vars.$secondary-color;
+	}
+	&.outlined {
+		padding: 8px 27px;
+		border: 2px solid vars.$secondary-color;
+		border-radius: 12px;
+	}
+	&.text {
+		background: transparent;
+		padding-inline: 17.5px;
+	}
+
+	&.nav {
+		font-weight: vars.$font-weight-medium;
+		font-size: vars.$font-size-xs;
+		line-height: 133%;
+		color: vars.$text-color;
+		background: #2b324c;
+		border-radius: 8px;
+		padding: 4px 9.5px;
+		min-height: 24px;
+	}
+	&.lg {
+		padding: vars.$spacing-base;
+		border-radius: vars.$border-radius-base;
+		min-width: 126px;
+	}
+	@media (hover: hover) and (pointer: fine) {
+		&:hover {
+			color: vars.$secondary-color;
+		}
+
+		&.contained:hover {
+			color: vars.$primary-color;
+		}
+
+		&.nav:hover {
+			color: vars.$secondary-color;
+		}
+	}
+}

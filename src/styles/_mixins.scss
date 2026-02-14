@@ -1,0 +1,4 @@
+@use "variables" as vars;
+@mixin container-padding {
+	padding: 0 clamp(vars.$spacing-base, 2.5vw, vars.$spacing-large);
+}
