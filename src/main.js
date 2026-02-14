@@ -8,6 +8,7 @@ import { cardData } from './data/cardData.js'
 import { productData } from './data/productData.js'
 import { topGameData } from './data/topGameData.js'
 import { customButton } from '@/components/button/customButton.js'
+import { debounce } from '@/utils/debounce.js'
 
 initHeader('#header-root')
 initBanner('#banner')
@@ -36,19 +37,30 @@ initHorizontalScroll('#product2', {
 	leftHeader: `<h2>Top games</h2>`,
 	nav: true
 });
-if (window.innerWidth < 992) {
-	initHorizontalScroll('#productMore', {
-		cards: topGameData.slice(5, 10),
-		content: productCard,
-		type: 'none',
-	});
+
+function initScrolls() {
+
+	if (window.innerWidth < 992) {
+		initHorizontalScroll('#productMore', {
+			cards: topGameData.slice(5, 10),
+			content: productCard,
+			type: 'none',
+		});
+
+		initHorizontalScroll('#product3', {
+			cards: productData,
+			content: productCard,
+			type: 'first',
+			leftHeader: `<h2>Mini games</h2>`,
+			nav: true
+		});
+	}
 }
-if (window.innerWidth < 992) {
-	initHorizontalScroll('#product3', {
-		cards: productData,
-		content: productCard,
-		type: 'first',
-		leftHeader: `<h2>Mini games</h2>`,
-		nav: true
-	});
-}
+
+
+initScrolls();
+
+
+window.addEventListener('resize', debounce(() => {
+	initScrolls();
+}, 200));
