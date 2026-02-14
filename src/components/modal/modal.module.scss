@@ -34,7 +34,13 @@
 		font-weight: vars.$font-weight-bold;
 	}
 }
-
+.modalClose {
+	position: absolute;
+	color: vars.$text-color;
+	top: 50%;
+	transform: translate(0, -50%);
+	right: 20px;
+}
 .show {
 	opacity: 1;
 	pointer-events: all;
@@ -45,8 +51,8 @@
 	border-radius: 12px;
 	width: 90%;
 	max-width: 800px;
-	max-height: 80%;
-	overflow-y: auto;
+	height: 90%;
+	@include m.hide-scrollbar;
 	position: relative;
 	transform: translateY(-50px);
 	transition: transform 0.3s ease;
@@ -55,30 +61,30 @@
 .show .modalContent {
 	transform: translateY(0);
 }
+
 .inputWrapper {
 	color: #fff;
+	.notResult {
+		text-align: center;
+	}
 }
 .content {
 	@include m.container-padding;
+	.notResult {
+		text-align: center;
+	}
 }
-.modalClose {
-	position: absolute;
-	color: #fff;
-	top: 50%;
-	transform: translate(0, -50%);
-	right: 20px;
-	font-size: 24px;
-	background: none;
-	border: none;
-	cursor: pointer;
-}
+
 .cardTitle {
 	padding: vars.$spacing-large vars.$spacing-small;
 	font-size: vars.$font-size-base;
 }
+
 .modalCards {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 12px;
-	justify-content: center;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: vars.$spacing-small;
+	@media (min-width: 648px) {
+		grid-template-columns: repeat(3, 1fr);
+	}
 }

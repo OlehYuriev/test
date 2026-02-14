@@ -27,5 +27,5 @@ export function inputField({ onChange }) {
 		input.focus()
 	})
 
-	return wrapper
+	return { wrapper, input }
 }

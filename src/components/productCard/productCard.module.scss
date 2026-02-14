@@ -1,13 +1,10 @@
 .card {
 	flex: 0 0 auto;
 	overflow: hidden;
-	width: 160px;
-	@media (min-width: 768px) {
-		width: 272px;
-	}
 	.imageWrapper {
 		position: relative;
 		overflow: hidden;
+		aspect-ratio: 160 / 106;
 		@media (hover: hover) and (pointer: fine) {
 			&:hover {
 				.hoverBlock {
@@ -30,6 +27,9 @@
 		align-items: center;
 		justify-content: flex-end;
 		transform: translateY(100%);
+		@media (max-width: 768px) {
+			display: none;
+		}
 		&::after {
 			content: "";
 			position: absolute;
@@ -50,11 +50,7 @@
 	.image {
 		border-radius: vars.$border-radius-small;
 		width: 100%;
-		height: 106px;
-		@media (min-width: 768px) {
-			height: 188px;
-		}
-
+		height: 100%;
 		object-fit: cover;
 	}
 

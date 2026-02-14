@@ -1,11 +1,10 @@
-.card {
+.card.fixedCard {
 	display: flex;
-	flex: 0 0 auto;
-	width: 168px;
+	flex: 0 0 168px;
 	gap: 4px;
 	padding: vars.$spacing-small;
 	border-radius: vars.$border-radius-base;
-	background: #2b324c;
+	background: vars.$surface-color;
 	overflow: hidden;
 }
 

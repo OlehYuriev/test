@@ -1,52 +1,30 @@
 import styles from './initHorizontalScroll.module.scss';
-import { customButton } from '@/components/button/customButton.js'
-import { Icons } from '@/assets/icons/icons.js'
+import { renderNavButtons } from "./renderNavButtons.js";
 
-function createNav() {
-
-	return `
-    <div class="${styles.right}"> 
-      <div class="${styles.nav}">
-        ${customButton({ text: `${Icons.left}`, variant: 'nav', className: 'prev' })}
-        ${customButton({ text: `${Icons.right}`, variant: 'nav', className: 'next' })}
-      </div>
-      ${customButton({ text: 'Show all', variant: 'nav', className: 'showAll' })}
-    </div>
-  `
-
-}
-
-/* ----------------------------------------------------------------------------- */
 
 export function initHorizontalScroll(selector, {
 	cards,
-	moreCards = null,
 	content,
 	type = 'default',
 	leftHeader = null,
 	nav = false,
-
+	containerSize = 'lg',
 } = {}) {
 	const root = document.querySelector(selector);
 
 	const headerHTML = leftHeader ? `<div class="${styles.left}">${leftHeader}</div>` : '';
+
 	const navHTML = nav ?
-		createNav()
+		renderNavButtons()
 		:
 		'';
-	const moreCardsHTML = moreCards ? `<div class="${styles.cardRow} ${styles.cardRowMobile}">
-				${moreCards.map(content).join('')}	
-			</div>` : '';
 
 	root.innerHTML = `
-    <section  class="${styles.wrapper} ${type === 'first' ? styles.wrapper__first : styles.wrapper__default}">
+    <section  class="${styles.wrapper} ${type === 'none' ? '' : type === 'first' ? styles.wrapper__first : styles.wrapper__default}">
 	 <div class="${styles.header}">${headerHTML}  ${navHTML}</div>
 	
-		<div class="${styles.scrollContainer}">
-			<div class="${styles.cardRow}">
+		<div class="${styles.scrollContainer} ${styles[containerSize]}">
 				${cards.map(content).join('')}	
-			</div>
-			${moreCardsHTML}
 		</div>
 		
     </section>

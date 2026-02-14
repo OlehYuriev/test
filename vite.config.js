@@ -17,5 +17,9 @@ export default defineConfig({
 				additionalData: `@use "@styles/_variables" as vars;`
 			}
 		}
+	},
+	server: {
+		port: 5173,
+		strictPort: false
 	}
 })

@@ -11,8 +11,8 @@ $primary-color: #9fa1aa;
 }
 .input {
 	width: 100%;
-	padding: 14px 12px 14px 48px;
-	/* 	height: 48px; */
+	padding-inline: 48px 12px;
+	height: 48px;
 	border: none;
 	border-radius: vars.$border-radius-sm;
 	font-size: vars.$font-size-small;

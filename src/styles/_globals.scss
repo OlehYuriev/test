@@ -13,8 +13,3 @@ body {
 	background-color: vars.$primary-color;
 	color: vars.$text-color;
 }
-
-.container {
-	padding: 0 clamp(vars.$spacing-base, 2.5vw, vars.$spacing-large);
-	overflow-x: hidden;
-}

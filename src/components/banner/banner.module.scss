@@ -2,8 +2,9 @@
 	width: 100%;
 	object-fit: cover;
 	margin-top: vars.$spacing-base;
-
+	aspect-ratio: 372 / 212;
 	@media (min-width: 768px) {
 		margin-top: 0;
+		aspect-ratio: 1440 / 338;
 	}
 }

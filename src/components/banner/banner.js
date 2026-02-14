@@ -20,7 +20,7 @@ export function initBanner(selector) {
 			<source srcset="${bannerMobileWebP}" type="image/webp" )">
 			
 		
-			<img src="${bannerMobileJPG}" alt="Baner" class="${styles.banner}">
+			<img src="${bannerMobileJPG}"  alt="Baner" class="${styles.banner}" >
 		</picture>
   `
 

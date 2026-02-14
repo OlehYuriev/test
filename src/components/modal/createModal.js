@@ -1,9 +1,8 @@
 import styles from './modal.module.scss'
-import { productCard } from '@components/productCard/productCard.js'
-import { inputField } from '@components/inputField/inputField.js'
 import { Icons } from '@/assets/icons/icons.js'
 
-export function initModal() {
+
+export function createModal() {
 	const root = document.getElementById('modal-root')
 
 	root.innerHTML = `
@@ -19,6 +18,7 @@ export function initModal() {
           </p>
           <div class="${styles.inputWrapper}"></div>
 			  <h3 class="${styles.cardTitle}">Top games</h3>
+			  <p class="${styles.notResult}"></p>
           <div class="${styles.modalCards}"></div>
         </div>
       </div>
@@ -28,41 +28,16 @@ export function initModal() {
 	const modal = root.querySelector(`.${styles.modal}`)
 	const closeBtn = modal.querySelector(`.${styles.modalClose}`)
 	const cardsContainer = modal.querySelector(`.${styles.modalCards}`)
+
 	const inputWrapper = modal.querySelector(`.${styles.inputWrapper}`)
+	const notResult = modal.querySelector(`.${styles.notResult}`)
 
-	let allCards = []
 
-	function renderCards(cards) {
-		cardsContainer.innerHTML = cards.map(productCard).join('')
+	return {
+		modal,
+		inputWrapper,
+		cardsContainer,
+		notResult,
+		closeBtn
 	}
-
-
-	const searchInput = inputField({
-		onChange: value => {
-			const query = value.toLowerCase().trim()
-			const filtered = allCards.filter(card =>
-				card.title.toLowerCase().includes(query)
-			)
-			renderCards(filtered)
-		}
-	})
-
-	inputWrapper.appendChild(searchInput)
-
-	function open(cards = []) {
-		allCards = cards
-		renderCards(cards)
-		modal.classList.add(styles.show)
-	}
-
-	function close() {
-		modal.classList.remove(styles.show)
-	}
-
-	closeBtn.addEventListener('click', close)
-	modal.addEventListener('click', e => {
-		if (e.target === modal) close()
-	})
-
-	return { open, close }
 }

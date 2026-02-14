@@ -1,9 +1,9 @@
 import './styles/main.scss'
-import { initHeader } from './components/header/header.js'
-import { initBanner } from './components/banner/banner.js'
-import { initHorizontalScroll } from './components/initHorizontalScroll/initHorizontalScroll.js'
-import { card } from './components/card/card.js'
-import { productCard } from './components/productCard/productCard.js'
+import { initHeader } from './components/header'
+import { initBanner } from './components/banner'
+import { initHorizontalScroll } from './components/initHorizontalScroll'
+import { card } from './components/card'
+import { productCard } from './components/productCard'
 import { cardData } from './data/cardData.js'
 import { productData } from './data/productData.js'
 import { topGameData } from './data/topGameData.js'
@@ -14,7 +14,7 @@ initBanner('#banner')
 
 initHorizontalScroll('#card', {
 	cards: cardData,
-	content: card
+	content: card,
 });
 
 initHorizontalScroll('#product', {
@@ -31,13 +31,18 @@ initHorizontalScroll('#product', {
 
 initHorizontalScroll('#product2', {
 	cards: topGameData.slice(0, 5),
-	moreCards: topGameData.slice(5),
 	content: productCard,
 	type: 'first',
 	leftHeader: `<h2>Top games</h2>`,
 	nav: true
 });
-
+if (window.innerWidth < 992) {
+	initHorizontalScroll('#productMore', {
+		cards: topGameData.slice(5, 10),
+		content: productCard,
+		type: 'none',
+	});
+}
 if (window.innerWidth < 992) {
 	initHorizontalScroll('#product3', {
 		cards: productData,

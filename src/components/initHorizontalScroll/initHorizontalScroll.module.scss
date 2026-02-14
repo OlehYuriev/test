@@ -1,5 +1,12 @@
 @use "@/styles/mixins" as m;
 
+@mixin horizontal-scroll-container($card-width) {
+	& > * {
+		flex: 0 0 auto;
+		width: $card-width;
+	}
+}
+
 .wrapper {
 	&__first {
 		margin-top: vars.$margin-top-lg;
@@ -15,22 +22,23 @@
 
 .scrollContainer {
 	@include m.container-padding;
+	@include m.hide-scrollbar;
+	display: flex;
+	gap: vars.$spacing-small;
 
-	overflow-x: auto;
+	@include horizontal-scroll-container(160px);
 
-	scroll-behavior: smooth;
-	scrollbar-width: none;
+	@media (min-width: 768px) {
+		&.sm {
+			@include horizontal-scroll-container(168px);
+		}
 
-	&::-webkit-scrollbar {
-		display: none;
-	}
-	.cardRow {
-		display: flex;
-		gap: vars.$spacing-small;
-	}
-	.cardRowMobile {
-		@media (min-width: 768px) {
-			display: none;
+		&.md {
+			@include horizontal-scroll-container(245px);
+		}
+
+		&.lg {
+			@include horizontal-scroll-container(272px);
 		}
 	}
 }
